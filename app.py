@@ -2,13 +2,11 @@ from flask import Flask, render_template_string, request
 from flask_socketio import SocketIO, emit, join_room, leave_room
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = "93220d984aab9c3c12c54c4ba4790e2e"  # Hardcoded secret key for development
+app.config['SECRET_KEY'] = "93220d984aab9c3c12c54c4ba4790e2e"  
 socketio = SocketIO(app, cors_allowed_origins="*")
 
-# Store active rooms and their participants
 rooms = {}
 
-# HTML template with embedded JavaScript
 HTML_TEMPLATE = '''
 <!DOCTYPE html>
 <html>
